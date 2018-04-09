@@ -9,7 +9,7 @@
 import Foundation
 
 protocol LogParserDelegate:class {
-    func parsingDidSucceed(routes: [SequenceData])
+    func parsingDidSucceed(routes: [SequenceData], maxFrequency: Int)
     func parserWillStart(with count: Int)
     func parserDidParseElement(index: Int)
     //    func parsingDidFail()
@@ -28,12 +28,14 @@ class LogParser {
     func parseLogForRouteSequences(patternLength: Int = 3, separator: Character = ",") {
         var checker: [String: [String]] = [:] // checks an ip address to see if they have a sequence
         var routes: [String: SequenceData] = [:] // the final return data
-        
+
         if contents.count > 0 {
             delegate?.parserWillStart(with: contents.count)
         }
         
         var element:Int = 0
+        var maxFreq: Int = 0
+
         for entry in contents {
             let split = entry.split(separator: " ")
             let ip = String(split[0])
@@ -60,6 +62,9 @@ class LogParser {
 
                     if let alreadyExists = routes[str] {
                         routes[str]?.frequency = alreadyExists.frequency + 1
+                        if routes[str]!.frequency > maxFreq {
+                            maxFreq = routes[str]!.frequency
+                        }
                     } else {
                         routes[str] = SequenceData(paths: str, frequency: 1)
                     }
@@ -76,6 +81,6 @@ class LogParser {
             element = element + 1
         }
         
-        delegate?.parsingDidSucceed(routes: Array(routes.values))
+        delegate?.parsingDidSucceed(routes: Array(routes.values), maxFrequency: maxFreq)
     }
 }

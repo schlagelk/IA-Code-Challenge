@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var sequences: [SequenceData] = []
+    var tableData = [Int: [SequenceData]]()
+    var maxFrequency: Int = 0
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,10 +39,17 @@ class ViewController: UIViewController {
 
 //MARK: LogParserDelegate
 extension ViewController: LogParserDelegate {
-    func parsingDidSucceed(routes: [SequenceData]) {
-        // reload tableview
-        print("finished!")
-        sequences = routes.sorted(by: {$0.frequency > $1.frequency})
+    func parsingDidSucceed(routes: [SequenceData], maxFrequency: Int) {
+
+        self.maxFrequency = maxFrequency // store the max
+
+        for route in routes {
+            if tableData[maxFrequency - route.frequency] != nil {
+                tableData[maxFrequency - route.frequency]?.append(route)
+            } else {
+                tableData[maxFrequency - route.frequency] = [route]
+            }
+         }
         tableView.reloadData()
     }
     
@@ -58,18 +66,22 @@ extension ViewController: LogParserDelegate {
 
 // MARK: UITableViewDataSource & Delegate
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Frequency \(maxFrequency - section)"
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return tableData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sequences.count
+        return tableData[section]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: LogCellTableViewCell.reuseIdentifier) as? LogCellTableViewCell {
-            let routeData = sequences[indexPath.row]
+            let routeData = tableData[indexPath.section]![indexPath.row]
             cell.routeLabel.text = routeData.paths.replacingOccurrences(of: ",", with: "\n")
             cell.routeLabel.sizeToFit()
             cell.countLabel.text = "\(routeData.frequency)"
