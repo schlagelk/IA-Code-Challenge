@@ -25,55 +25,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JOX-0Y-dVZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JOX-0Y-dVZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LogCell" id="EEG-PK-lv1" customClass="LogCellTableViewCell" customModule="IA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EEG-PK-lv1" id="M4Q-Xt-1LA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZD-5e-1Cj">
-                                                    <rect key="frame" x="59.5" y="10.5" width="40.5" height="17.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Route" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZD-5e-1Cj">
+                                                    <rect key="frame" x="84" y="13" width="272" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="paths:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOn-Ev-L23">
-                                                    <rect key="frame" x="15" y="11.5" width="38.5" height="15.5"/>
+                                                    <rect key="frame" x="25" y="14" width="38.5" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="frequency:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqI-Z3-0FV">
-                                                    <rect key="frame" x="15" y="32" width="65.5" height="15.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8v-9h-IUu">
+                                                    <rect key="frame" x="25" y="43" width="36" height="16"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uP5-Vl-kbo">
-                                                    <rect key="frame" x="92.5" y="31" width="9.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62o-e5-h7R">
+                                                    <rect key="frame" x="84" y="43" width="7.5" height="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FZD-5e-1Cj" firstAttribute="leading" secondItem="kOn-Ev-L23" secondAttribute="trailing" constant="6" id="6xM-go-KH9"/>
-                                                <constraint firstItem="kOn-Ev-L23" firstAttribute="centerY" secondItem="M4Q-Xt-1LA" secondAttribute="centerY" constant="-8" id="7hq-QC-qFP"/>
-                                                <constraint firstItem="kOn-Ev-L23" firstAttribute="leading" secondItem="M4Q-Xt-1LA" secondAttribute="leadingMargin" id="Ij3-gV-kNe"/>
+                                                <constraint firstItem="FZD-5e-1Cj" firstAttribute="leading" secondItem="kOn-Ev-L23" secondAttribute="trailing" constant="20" id="6xM-go-KH9"/>
+                                                <constraint firstItem="e8v-9h-IUu" firstAttribute="centerY" secondItem="62o-e5-h7R" secondAttribute="centerY" id="7PF-LK-kUn"/>
+                                                <constraint firstItem="FZD-5e-1Cj" firstAttribute="top" secondItem="M4Q-Xt-1LA" secondAttribute="topMargin" constant="2" id="9HK-71-fZ2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FZD-5e-1Cj" secondAttribute="trailing" constant="4" id="EUV-0A-B7z"/>
+                                                <constraint firstItem="kOn-Ev-L23" firstAttribute="leading" secondItem="M4Q-Xt-1LA" secondAttribute="leadingMargin" constant="10" id="Ij3-gV-kNe"/>
                                                 <constraint firstItem="FZD-5e-1Cj" firstAttribute="centerY" secondItem="kOn-Ev-L23" secondAttribute="centerY" id="O2o-iu-0ps"/>
-                                                <constraint firstItem="uP5-Vl-kbo" firstAttribute="leading" secondItem="NqI-Z3-0FV" secondAttribute="trailing" constant="12" id="TWf-Bl-ZkV"/>
-                                                <constraint firstItem="NqI-Z3-0FV" firstAttribute="leading" secondItem="kOn-Ev-L23" secondAttribute="leading" id="Zco-Dz-vHt"/>
-                                                <constraint firstItem="uP5-Vl-kbo" firstAttribute="centerY" secondItem="NqI-Z3-0FV" secondAttribute="centerY" id="iHY-UP-iIp"/>
-                                                <constraint firstItem="NqI-Z3-0FV" firstAttribute="top" secondItem="kOn-Ev-L23" secondAttribute="bottom" constant="5" id="jDL-rT-gQd"/>
+                                                <constraint firstItem="62o-e5-h7R" firstAttribute="leading" secondItem="FZD-5e-1Cj" secondAttribute="leading" id="a5L-PL-yoa"/>
+                                                <constraint firstItem="e8v-9h-IUu" firstAttribute="leading" secondItem="kOn-Ev-L23" secondAttribute="leading" id="bsV-Bx-1qd"/>
+                                                <constraint firstItem="62o-e5-h7R" firstAttribute="top" secondItem="FZD-5e-1Cj" secondAttribute="bottom" constant="12" id="mJy-fd-RCo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="frequencyLabel" destination="uP5-Vl-kbo" id="vAF-b6-xmb"/>
+                                            <outlet property="countLabel" destination="62o-e5-h7R" id="pVC-AI-mRJ"/>
                                             <outlet property="routeLabel" destination="FZD-5e-1Cj" id="VfN-X3-bdx"/>
                                         </connections>
                                     </tableViewCell>
@@ -88,8 +89,8 @@
                         <constraints>
                             <constraint firstItem="JOX-0Y-dVZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Dit-HJ-zuy"/>
                             <constraint firstItem="JOX-0Y-dVZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="H8S-a1-gpH"/>
-                            <constraint firstItem="JOX-0Y-dVZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eNe-wr-On5"/>
                             <constraint firstItem="JOX-0Y-dVZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mZl-Kd-FgZ"/>
+                            <constraint firstItem="JOX-0Y-dVZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qFI-LL-pAF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

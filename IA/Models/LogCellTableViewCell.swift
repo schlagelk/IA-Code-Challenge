@@ -13,7 +13,7 @@ class LogCellTableViewCell: UITableViewCell {
     public static let reuseIdentifier: String = "LogCell"
 
     @IBOutlet weak var routeLabel: UILabel!
-    @IBOutlet weak var frequencyLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -66,6 +66,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84571122207BEDF50022BA0C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8489FE352079ABB800C2A2F6 /* LogParser.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		84571123207BEDFD0022BA0C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8489FE142079AA1500C2A2F6 /* Main.storyboard */,
+				8489FE1C2079AA1500C2A2F6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		84571124207BEE050022BA0C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8489FE122079AA1500C2A2F6 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		84571125207BEE0B0022BA0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8489FE372079AE9C00C2A2F6 /* IA.log */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84571126207BEE1E0022BA0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8489FE332079AAA000C2A2F6 /* LogCellTableViewCell.swift */,
+				8489FE392079B19200C2A2F6 /* SequenceData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8489FE042079AA1500C2A2F6 = {
 			isa = PBXGroup;
 			children = (
@@ -87,17 +129,15 @@
 		8489FE0F2079AA1500C2A2F6 /* IA */ = {
 			isa = PBXGroup;
 			children = (
-				8489FE372079AE9C00C2A2F6 /* IA.log */,
-				8489FE102079AA1500C2A2F6 /* AppDelegate.swift */,
-				8489FE122079AA1500C2A2F6 /* ViewController.swift */,
-				8489FE332079AAA000C2A2F6 /* LogCellTableViewCell.swift */,
-				8489FE142079AA1500C2A2F6 /* Main.storyboard */,
-				8489FE1A2079AA1500C2A2F6 /* Assets.xcassets */,
-				8489FE1C2079AA1500C2A2F6 /* LaunchScreen.storyboard */,
 				8489FE1F2079AA1500C2A2F6 /* Info.plist */,
+				8489FE102079AA1500C2A2F6 /* AppDelegate.swift */,
+				8489FE1A2079AA1500C2A2F6 /* Assets.xcassets */,
+				84571124207BEE050022BA0C /* Controllers */,
+				84571122207BEDF50022BA0C /* Helpers */,
 				8489FE172079AA1500C2A2F6 /* IA.xcdatamodeld */,
-				8489FE352079ABB800C2A2F6 /* LogParser.swift */,
-				8489FE392079B19200C2A2F6 /* SequenceData.swift */,
+				84571126207BEE1E0022BA0C /* Models */,
+				84571123207BEDFD0022BA0C /* Storyboards */,
+				84571125207BEE0B0022BA0C /* Supporting Files */,
 			);
 			path = IA;
 			sourceTree = "<group>";

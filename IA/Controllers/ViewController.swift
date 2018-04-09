@@ -70,8 +70,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: LogCellTableViewCell.reuseIdentifier) as? LogCellTableViewCell {
             let routeData = sequences[indexPath.row]
-            cell.routeLabel.text = routeData.paths
-            cell.frequencyLabel.text = "\(routeData.frequency)"
+            cell.routeLabel.text = routeData.paths.replacingOccurrences(of: ",", with: "\n")
+            cell.routeLabel.sizeToFit()
+            cell.countLabel.text = "\(routeData.frequency)"
             return cell
         }
         return UITableViewCell()

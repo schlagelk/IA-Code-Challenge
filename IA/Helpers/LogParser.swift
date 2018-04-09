@@ -25,7 +25,7 @@ class LogParser {
     }
     
     // Try to keep this O(n)
-    func parseLogForRouteSequences(patternMin: Int = 3) {
+    func parseLogForRouteSequences(patternLength: Int = 3, separator: Character = ",") {
         var checker: [String: [String]] = [:] // checks an ip address to see if they have a sequence
         var routes: [String: SequenceData] = [:] // the final return data
         
@@ -43,11 +43,21 @@ class LogParser {
                 // just gonna force unwrap this thing cause
                 checker[ip]!.append(path)
                 
-                if checker[ip]!.count == patternMin {
+                if checker[ip]!.count == patternLength {
                     
                     // format a key and add to route counter
-                    let str = checker[ip]![0] + "," + checker[ip]![1] + "," + checker[ip]![2]
-                    
+                    var str = ""
+
+                    var i = 0
+                    while i < patternLength {
+                        if i == (patternLength - 1) {
+                            str = str + checker[ip]![i] // don't append to the last one
+                        } else {
+                            str = str + checker[ip]![i] + String(separator)
+                        }
+                        i = i + 1
+                    }
+
                     if let alreadyExists = routes[str] {
                         routes[str]?.frequency = alreadyExists.frequency + 1
                     } else {
