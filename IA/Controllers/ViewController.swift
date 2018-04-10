@@ -12,12 +12,24 @@ class ViewController: UIViewController {
     
     var tableData = [Int: [SequenceData]]()
     var maxFrequency: Int = 0
+    
+    var spinner: UIActivityIndicatorView?
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // set up spinner
+        if spinner == .none {
+            let spinna = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            spinna.frame = CGRect(x: self.view.center.x - 15, y: self.view.center.y - 20, width: 40.0, height: 40.0)
+            spinna.transform = CGAffineTransform(scaleX: 2, y: 2)
+            spinna.startAnimating()
+            view.addSubview(spinna)
+            
+            spinner = spinna
+        }
         
         guard let fileURL = Bundle.main.url(forResource: "IA", withExtension: "log") else {
             fatalError("URL Init Failed") // for demo
@@ -28,7 +40,9 @@ class ViewController: UIViewController {
         }
         
         parser.delegate = self
-        parser.parseLogForRouteSequences()
+        DispatchQueue.global(qos: .background).async { [p = parser] in
+            p.parseLogForRouteSequences()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +64,12 @@ extension ViewController: LogParserDelegate {
                 tableData[maxFrequency - route.frequency] = [route]
             }
          }
-        tableView.reloadData()
+        
+        DispatchQueue.main.async { [tv = tableView, spin = spinner] in
+            tv?.reloadData()
+            spin?.stopAnimating()
+            spin?.alpha = 0.0
+        }
     }
     
     func parserWillStart(with: Int) {
