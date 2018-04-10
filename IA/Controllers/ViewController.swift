@@ -66,9 +66,22 @@ extension ViewController: LogParserDelegate {
 
 // MARK: UITableViewDataSource & Delegate
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Frequency \(maxFrequency - section)"
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.black
+        let headerLabel = UILabel(frame: CGRect(x: 20, y: 10, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        headerLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0) ?? UIFont.boldSystemFont(ofSize: 16.0)
+        headerLabel.textColor = UIColor.white
+        headerLabel.text = "Frequency \(maxFrequency - section)"
+        headerLabel.sizeToFit()
+        headerView.addSubview(headerLabel)
+        
+        return headerView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
