@@ -23,11 +23,14 @@ class ViewController: UIViewController {
         // set up spinner
         if spinner == .none {
             let spinna = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-            spinna.frame = CGRect(x: self.view.center.x - 15, y: self.view.center.y - 20, width: 40.0, height: 40.0)
+            spinna.frame = CGRect(x: self.view.center.x - 15, y: -800, width: 40.0, height: 40.0)
             spinna.transform = CGAffineTransform(scaleX: 2, y: 2)
             spinna.startAnimating()
             view.addSubview(spinna)
             
+            UIView.animate(withDuration: 1.0) {
+                spinna.frame.origin.y = self.view.center.y - 50
+            }
             spinner = spinna
         }
         
