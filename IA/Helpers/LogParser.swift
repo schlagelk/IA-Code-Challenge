@@ -69,8 +69,8 @@ class LogParser {
                         routes[str] = SequenceData(paths: str, frequency: 1)
                     }
                     
-                    // reset the checker, because only 3 page sequences count
-                    checker[ip]!.removeAll()
+                    // remove first and keep checking
+                    checker[ip]!.removeFirst()
                 }
             } else {
                 // first time user has visited a path

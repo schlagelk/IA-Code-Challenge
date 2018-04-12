@@ -67,7 +67,7 @@ extension ViewController: LogParserDelegate {
                 tableData[maxFrequency - route.frequency] = [route]
             }
          }
-        
+                
         DispatchQueue.main.async { [tv = tableView, spin = spinner] in
             tv?.reloadData()
             spin?.stopAnimating()
